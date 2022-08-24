@@ -22,7 +22,10 @@ $opel = [
 
 $cars = ['bmw' => $bmw, 'toyota' => $toyota, 'opel' => $opel];
 
-foreach ($cars as $name => $car) {
-    echo "CAR: $name<br>";
-    echo implode(' ', $car) . '<br>';
+function car_screen($cars)
+{
+    foreach ($cars as $name => $car) {
+        echo "CAR: $name<br>";
+        echo implode(' ', $car) . '<br>';
+    }
 }

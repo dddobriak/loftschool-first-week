@@ -9,7 +9,8 @@ $str_array = [
 
 task1($str_array, true);
 task2('/', 1,2,3);
-task3(5, 7);
+task3(5, 5);
+task_3_rec(5);
 
 // #4
 date_default_timezone_set('Europe/Bucharest');
@@ -27,9 +28,9 @@ echo str_replace('Две', 'Три', $str2);
 echo '<br>';
 
 // #6
-$str = "Hello again!";
-$fp = fopen('data.txt', 'a');
-fwrite($fp, $str . "\n");
-fclose($fp);
+// $str = "Hello again!";
+// $fp = fopen('data.txt', 'a');
+// fwrite($fp, $str . "\n");
+// fclose($fp);
 
-read_file('data.txt');
+// read_file('data.txt');

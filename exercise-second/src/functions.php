@@ -33,13 +33,16 @@ function task2($operator, ...$args)
             foreach($args as $arg) {
                 $res /= $arg;
             }
+
             return $res;
             break;
         case '*':
             $res = array_shift($args);
+
             foreach($args as $arg) {
                 $res *= $arg;
             }
+
             return $res;
             break;
         default:
@@ -50,14 +53,40 @@ function task2($operator, ...$args)
 
 function task3(int $row_size, int $col_size)
 {
-    echo '<table>';
+    echo '<table border=1>';
     for ($i = 1; $i <= $row_size; $i++) {
         echo '<tr>';
         for ($mult = 1; $mult <= $col_size; $mult++) {
-            echo '<td>' . $i * $mult . '</td>';
+            echo "<td> $mult * $i = " . $i * $mult . '</td>';
         }
         echo '</tr>';
     }
+    echo '</table>';
+}
+
+// Task 3 recursion
+function render_row($size, $i = 0)
+{
+    if ($i < $size) {
+        $i++;
+        echo '<tr>' . render_col($size, $i) . '</tr>';
+        return render_row($size, $i);
+    }
+}
+
+function render_col($size, $mult, $i = 0)
+{
+    if ($i < $size) {
+        $i++;
+        return "<td> $i * $mult = " . $i * $mult . '</td>' . render_col($size, $mult, $i);
+    }
+}
+
+
+function task_3_rec(int $size)
+{
+    echo '<table border=1>';
+    echo render_row($size);
     echo '</table>';
 }
 
