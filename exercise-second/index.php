@@ -9,7 +9,7 @@ $str_array = [
 
 task1($str_array, true);
 task2('/', 1,2,3);
-task3(5, 5);
+//task3(5, 5);
 task_3_rec(5);
 
 // #4

@@ -19,10 +19,8 @@ function task2($operator, ...$args)
     switch ($operator) {
         case '+':
             return array_sum($args);
-            break;
         case '-':
             return array_shift($args) - array_sum($args);
-            break;
         case '/':
             $res = array_shift($args);
 
@@ -35,7 +33,6 @@ function task2($operator, ...$args)
             }
 
             return $res;
-            break;
         case '*':
             $res = array_shift($args);
 
@@ -44,10 +41,8 @@ function task2($operator, ...$args)
             }
 
             return $res;
-            break;
         default:
             return 'unknown operator';
-            break;
     }
 }
 
@@ -65,29 +60,18 @@ function task3(int $row_size, int $col_size)
 }
 
 // Task 3 recursion
-function render_row($size, $i = 0)
-{
-    if ($i < $size) {
-        $i++;
-        echo '<tr>' . render_col($size, $i) . '</tr>';
-        return render_row($size, $i);
-    }
-}
-
-function render_col($size, $mult, $i = 0)
-{
-    if ($i < $size) {
-        $i++;
-        return "<td> $i * $mult = " . $i * $mult . '</td>' . render_col($size, $mult, $i);
-    }
-}
-
-
-function task_3_rec(int $size)
+function task_3_rec(int $row_size, $counter = 1)
 {
     echo '<table border=1>';
-    echo render_row($size);
+    for ($i = 1; $i <= $row_size; $i++) {
+        echo "<tr><td> $counter * $i: ". $i * $counter . '</td></tr>';
+    }
     echo '</table>';
+
+  if ($counter < $row_size) {
+    $counter++;
+    return task_3_rec($row_size, $counter);
+  }
 }
 
 function read_file($filename) {
